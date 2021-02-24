@@ -17,9 +17,14 @@ class Shipment
         $this->client = $client;
     }
 
-    public function shipmentRecording($data)
+    public function recording($data)
     {
         return $this->client->request(self::SERVICE.'enregistrement-envois', $data);
+    }
+
+    public function delete($data)
+    {
+        return $this->client->request(self::SERVICE.'suppression-envois', $data);
     }
 
     public function createShipment(\Geodis\Model\Shipment $shipmentRequest, \Geodis\Model\ListEnvoi $shipmentData, \Geodis\Model\Expediteur $sender, \Geodis\Model\Destinataire $receiver, $parcel)
@@ -29,6 +34,11 @@ class Shipment
         $shipmentData->listUmgs = $parcel;
         $shipmentRequest->listEnvois = [$shipmentData];
 
-        return $this->shipmentRecording($shipmentRequest->toJson());
+        return $this->recording($shipmentRequest->toJson());
+    }
+
+    public function deleteShipment(\Geodis\Model\SuppressionEnvois $data)
+    {
+        return $this->delete($data->toJson());
     }
 }
