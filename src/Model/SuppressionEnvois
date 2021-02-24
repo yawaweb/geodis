@@ -1,0 +1,15 @@
+<?php
+namespace Geodis\Model;
+
+use Geodis\Model\Base\Model;
+
+class SuppressionEnvois extends Model
+{
+    /**
+     * Class ListEnvoi.
+     * @property array   listNosRecepisses                      Obligatoire/Facultatif      Liste des numéros de récépissés des envois à supprimer
+     * @property array   listNosSuivis                          Obligatoire                 Liste des numéros de suivis des envois à supprimer
+     */
+    public $listNosRecepisses;
+    public $listNosSuivis;
+}
