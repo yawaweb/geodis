@@ -6,17 +6,17 @@ namespace Geodis\Client;
 
 class Client
 {
-    const SERVICE_URL_GEODIS = 'https://espace-client-rct.geodis.com/services/';
-    const SERVICE_URL_FRANCE_EXPRESS = 'https://espace-client.france-express.com/services/';
+    const SERVICE_URL_GEODIS_SANDBOX = 'https://espace-client-rct.geodis.com/services/';
+    const SERVICE_URL_GEODIS = 'https://espace-client.geodis.com/services/';
     const SERVICE = 'api/';
 
     protected $connection;
     protected $service;
     protected $service_url;
 
-    public function __construct(ConnectionBuilder $connection, $serviceData = 'GEODIS')
+    public function __construct(ConnectionBuilder $connection)
     {
-        $this->service_url = ('GEODIS' == $serviceData) ? self::SERVICE_URL_GEODIS : self::SERVICE_URL_FRANCE_EXPRESS;
+        $this->service_url = ($connection->sandbox == true) ? SERVICE_URL_GEODIS_SANDBOX : SERVICE_URL_GEODIS;
         $this->service = self::SERVICE;
         $this->connection = $connection;
     }
