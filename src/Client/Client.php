@@ -16,7 +16,7 @@ class Client
 
     public function __construct(ConnectionBuilder $connection)
     {
-        $this->service_url = ($connection->sandbox == true) ? SERVICE_URL_GEODIS_SANDBOX : SERVICE_URL_GEODIS;
+        $this->service_url = ($connection->sandbox == true) ? self::SERVICE_URL_GEODIS_SANDBOX : self::SERVICE_URL_GEODIS;
         $this->service = self::SERVICE;
         $this->connection = $connection;
     }
