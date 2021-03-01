@@ -9,7 +9,7 @@ use Geodis\Model\Destinataire;
 use Geodis\Model\ListEnvoi;
 use Geodis\Model\ListUmg;
 
-$connection = new \Geodis\Client\ConnectionBuilder('DEMO', '12345678');
+$connection = new \Geodis\Client\ConnectionBuilder('DEMO', '12345678', true);
 $client = new \Geodis\Client\Client($connection);
 $geodis = new \Geodis\Client\Shipment($client);
 
